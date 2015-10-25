@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+   <script src="htmlc.js"></script>
+   <link rel="stylesheet" href="example.css">
+   <script>
+function HTMLC_color_desaturate(c)
+{
+  var av = Math.round((Math.min(c.r, c.g, c.b)+c.r+c.g+c.b)/4);
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:av, g:av, b:av, a:c.a};
+};
+function HTMLC_color_invert(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:255-c.r, g:255-c.g, b:255-c.b, a:c.a};
+};
+function HTMLC_color_unred(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:0, g:c.g, b:c.b, a:c.a};
+};
+function HTMLC_color_fullred(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:255, g:c.g, b:c.b, a:c.a};
+};
+function HTMLC_color_ungreen(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:c.r, g:0, b:c.b, a:c.a};
+};
+function HTMLC_color_fullgreen(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:c.r, g:255, b:c.b, a:c.a};
+};
+function HTMLC_color_unblue(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:c.r, g:c.g, b:0, a:c.a};
+};
+function HTMLC_color_fullblue(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:c.r, g:c.g, b:255, a:c.a};
+};
+function HTMLC_color_redblue(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:c.b, g:c.g, b:c.r, a:c.a};
+};
+function HTMLC_color_random(c)
+{
+  if(!c.a)
+    c.a = 1;
+  c.r = Math.round(Math.random()*255);
+  c.g = Math.round(Math.random()*255);
+  c.b = Math.round(Math.random()*255);
+  return {text:c.text,r:c.r, g:c.g, b:c.b, a:c.a};
+};
+function HTMLC_color_default(c)
+{
+  if(!c.a)
+    c.a = 1;
+  return {text:c.text,r:c.r, g:c.g, b:c.b, a:c.a};
+};
+   </script>
+ </head>
+ <body>
+   <div style="color:#f00;">red style="color:#f00;"</div>
+   <div class="red">red class="red"</div>
+   <div class="blue">blue class="blue"</div>
+   <div class="bg-blue red">blue class="bg-blue red"</div>
+   <span style="color:#000;background:#fff;">Black colors:</span>
+   <span style="color:000;background:#fff;">1</span>
+   <span style="color:000;background:#ffc;">2</span>
+   <span style="color:000;background:#fcf;">3</span>
+   <span style="color:000;background:#fcc;">4</span>
+   <span style="color:000;background:#cff;">5</span>
+   <span style="color:000;background:#cfc;">6</span>
+   <span style="color:000;background:#ccf;">7</span>
+   <span style="color:000;background:#ccc;">8</span>
+   <span style="color:000;background:#aaa;">9</span>
+   <span style="color:000;background:#acf;">10</span>
+   
+   
+   <div class="box" style="position:fixed;top:10px;right:10px;background: #ddd;padding:10px;">
+     <div onclick="HTMLC_setColor(HTMLC_color_desaturate);">Graphicscale</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_invert);">Invert colors</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_unred);">Remove red</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_fullred);">Add red</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_ungreen);">Remove green</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_fullgreen);">Add green</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_unblue);">Remove blue</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_fullblue);">Add blue</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_redblue);">Replace red and blue</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_random);">Random</div>
+     <div onclick="HTMLC_setColor(HTMLC_color_default);">Default</div>
+   </div>
+   
+ </body>
+</html>
